@@ -1,284 +1,130 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celebración Especial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>¡Feliz Cumpleaños!</title>
     <style>
-        :root {
-            --primary-color: #FF4E79;
-            --secondary-color: #6A5ACD;
-            --background-gradient: linear-gradient(145deg, #FF4E79, #6A5ACD);
-            --box-shadow-elegant: 0 15px 35px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.05);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html, body {
-            overscroll-behavior: none;
-            user-select: none;
-        }
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--background-gradient);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3ff);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            perspective: 1500px;
-            overflow: hidden;
-            color: #333;
-            line-height: 1.6;
-        }
-        .birthday-card {
-            width: 95%;
-            max-width: 680px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: var(--box-shadow-elegant);
-            transform: translateZ(-50px) rotateX(10deg);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid rgba(255,78,121,0.1);
-            position: relative;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
             overflow: hidden;
         }
-        .birthday-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
-            transform: rotate(-45deg);
-            z-index: 1;
-            pointer-events: none;
-        }
-        .birthday-card:hover {
-            transform: translateZ(0) rotateX(0) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-        }
-        .card-header {
+        .container {
             text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        .card-header h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-            letter-spacing: -2px;
-        }
-        .emoji-banner {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-        .btn {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            background: var(--background-gradient);
-            color: white;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(255,78,121,0.3);
-        }
-        .btn:hover {
-            transform: translateY(-5px) rotate(2deg);
-            box-shadow: 0 15px 30px rgba(255,78,121,0.4);
-        }
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.6s;
         }
-        .btn:hover::before {
-            left: 100%;
+        h1 {
+            color: #ff69b4;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px #ffcccc;
+        }
+        .button {
+            background: linear-gradient(45deg, #ff69b4, #ff85ff);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .emoji {
+            font-size: 4rem;
+            margin: 1.5rem 0;
         }
         #message {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            min-height: 80px;
+            margin-top: 20px;
+            font-size: 1.4rem;
+            color: #ff69b4;
+            height: 70px;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        .photo-space {
+            margin-top: 2rem;
+            border: 3px dashed #ff69b4;
+            border-radius: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
             display: flex;
-            align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .photo-showcase {
-            position: relative;
-            border-radius: 20px;
+            align-items: center;
             overflow: hidden;
-            box-shadow: var(--box-shadow-elegant);
-            transition: all 0.5s ease;
         }
-        .photo-showcase::after {
-            content: '🎁 Recuerdo Especial';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 0 0 15px 15px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .photo-showcase img {
-            width: 100%;
+        .photo-space img {
+            max-width: 100%;
             height: auto;
-            object-fit: cover;
-            transition: transform 0.6s ease;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
         }
-        .photo-showcase:hover img {
-            transform: scale(1.1) rotate(3deg);
-        }
-        .confetti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: transparent;
-            opacity: 0.8;
-            animation: fall linear forwards;
-        }
-        @keyframes fall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-            }
+        .photo-space img:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="birthday-card">
-        <div class="card-header">
-            <h1>¡Feliz Cumpleaños!</h1>
-        </div>
-
-        <div class="emoji-banner">
-            <span>🎂</span>
-            <span>🎉</span>
-            <span>🎈</span>
-        </div>
-
-        <div class="action-buttons">
-            <button class="btn" onclick="showMessage('¡Que este día esté lleno de alegría y sorpresas maravillosas! 🎉', 'joy')">Feliz Cumpleaños</button>
-            <button class="btn" onclick="showMessage('Que cada año te traiga más felicidad y éxitos. ¡A celebrar! 🥳', 'success')">Que cumplas muchos más</button>
-            <button class="btn" onclick="showMessage('Eres una persona increíble y mereces todo lo mejor. ¡Disfruta tu día! 💖', 'love')">Te quiero mucho</button>
-        </div>
-
-        <div class="emoji-banner">
-            <span>💖</span>
-            <span>✨</span>
-            <span>🎁</span>
-        </div>
-
+    <div class="container">
+        <h1>¡Feliz Cumpleaños!</h1>
+        <div class="emoji">🎂🎉🎈</div>
+        <button class="button" onclick="showMessage('¡Que este día esté lleno de alegría y sorpresas maravillosas! 🎉')">Feliz Cumpleaños</button>
+        <button class="button" onclick="showMessage('Que cada año que pase te traiga más felicidad y éxitos. ¡A celebrar! 🥳')">Que cumplas muchos más</button>
+        <button class="button" onclick="showMessage('Eres una persona increíble y mereces todo lo mejor. ¡Disfruta tu día! 💖')">Te quiero mucho</button>
+        <div class="emoji">💖✨🎁</div>
         <div id="message"></div>
-
-        <div class="photo-showcase">
-            <img src="yape.jpeg" alt="Recuerdo especial de cumpleaños">
+        <div class="photo-space">
+            <img src="yape.jpeg" alt="Tu foto especial de cumpleaños" id="birthday-photo">
         </div>
     </div>
 
-    <div class="confetti-container" id="confettiContainer"></div>
-
     <script>
-        function showMessage(msg, type) {
+        function showMessage(msg) {
             const messageElement = document.getElementById('message');
-            messageElement.textContent = msg;
-            
-            // Fade in message
+            messageElement.innerHTML = msg;
+            messageElement.style.opacity = 0;
             let opacity = 0;
-            messageElement.style.opacity = opacity;
+
+            // Fade in
             const fadeIn = setInterval(() => {
-                if (opacity >= 1) clearInterval(fadeIn);
+                if (opacity >= 1) {
+                    clearInterval(fadeIn);
+                }
                 messageElement.style.opacity = opacity;
                 opacity += 0.1;
             }, 50);
 
-            // Fade out message
+            // Fade out after 3 seconds
             setTimeout(() => {
-                let fadeOpacity = 1;
+                let opacity = 1;
                 const fadeOut = setInterval(() => {
-                    if (fadeOpacity <= 0) {
+                    if (opacity <= 0) {
                         clearInterval(fadeOut);
-                        messageElement.textContent = '';
+                        messageElement.innerHTML = '';
                     }
-                    messageElement.style.opacity = fadeOpacity;
-                    fadeOpacity -= 0.1;
+                    messageElement.style.opacity = opacity;
+                    opacity -= 0.1;
                 }, 50);
             }, 3000);
-
-            // Confetti explosion
-            createConfetti(type);
-        }
-
-        function createConfetti(type) {
-            const container = document.getElementById('confettiContainer');
-            const colors = {
-                'joy': ['#FFD700', '#FF6347', '#FF4500'],
-                'success': ['#4CAF50', '#2E8B57', '#3CB371'],
-                'love': ['#FF69B4', '#FF1493', '#DB7093']
-            };
-
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
-                
-                const randomColor = colors[type][Math.floor(Math.random() * colors[type].length)];
-                confetti.style.backgroundColor = randomColor;
-                
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                
-                container.appendChild(confetti);
-
-                // Remove confetti after animation
-                confetti.addEventListener('animationend', () => {
-                    confetti.remove();
-                });
-            }
         }
     </script>
 </body>
