@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .emoji {
+            font-size: 3rem;
+            margin: 1rem 0;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ff69b4;
+            height: 60px;
+        }
+        .photo-space {
+            margin-top: 2rem;
+            border: 2px dashed #ff69b4;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .photo-space img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Feliz Cumpleaños!</h1>
+        <div class="emoji">🎂🎉🎈</div>
+        <button class="button" onclick="showMessage('¡Que este día esté lleno de alegría y sorpresas maravillosas! 🎉')">Feliz Cumpleaños</button>
+        <button class="button" onclick="showMessage('Que cada año que pase te traiga más felicidad y éxitos. ¡A celebrar! 🥳')">Que cumplas muchos más</button>
+        <button class="button" onclick="showMessage('Eres una persona increíble y mereces todo lo mejor. ¡Disfruta tu día! 💖')">Te quiero mucho</button>
+        <div class="emoji">💖✨🎁</div>
+        <div id="message"></div>
+        <div class="photo-space">
+            <img src="/placeholder.svg?height=300&width=400" alt="Espacio para tu foto especial de cumpleaños" id="birthday-photo">
+        </div>
+    </div>
+
+    <script>
+        function showMessage(msg) {
+            const messageElement = document.getElementById('message');
+            messageElement.innerHTML = msg;
+            messageElement.style.opacity = 0;
+            let opacity = 0;
+            const fadeIn = setInterval(() => {
+                if (opacity >= 1) {
+                    clearInterval(fadeIn);
+                }
+                messageElement.style.opacity = opacity;
+                opacity += 0.1;
+            }, 50);
+            
+            setTimeout(() => {
+                let opacity = 1;
+                const fadeOut = setInterval(() => {
+                    if (opacity <= 0) {
+                        clearInterval(fadeOut);
+                        messageElement.innerHTML = '';
+                    }
+                    messageElement.style.opacity = opacity;
+                    opacity -= 0.1;
+                }, 50);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
